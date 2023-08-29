@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICF ID Card Generator</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+</head>
+
+
+
+<body>
+
+    </div>
+    <section class="heading-area">
+        <div class="header">
+            <h1><a href="./index.html">AICF ID Card Generator</a></h1>
+        </div>
+    </section>
+
+    <!-- <div id="alert-message-box" class="modal" message_attr="{{ message_attr }}">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+
+    </div> -->
+
+
+    <section class="main-area">
+        <div class="container">
+            <div class="iframe">
+                <iframe id="aicfwebsite" title="AICF Website" src="https://prs.aicf.in/players">
+                </iframe>
+            </div>
+
+            <div class="form">
+                <form action="{{ url_for('download_output_image') }}" method="post" autocomplete="off">
+                    <label class="label" for="aicf_value">Enter your AICF ID</label>
+                    <input class="input" type="text" id="aicf_value" name="aicf_id" placeholder="AICF ID goes here!"
+                        required minlength="12" maxlength="12" size="12" />
+
+                    <div class="buttons">
+                        <button id="download_button" type="submit">Download ID Card</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="footer-area">
+        <div class="footer-area container">
+            <footer>
+                <p>Made for the chess community by <a class="footlink" href="https://github.com/Ohnoimded"
+                        target="_blank">Ohnoimded</a></p>
+                <a href="" id="buymecoffee">Support me</a>
+            </footer>
+        </div>
+    </section>
+
+
+    <!-- <script src="../static/js/scripts.js" defer></script>  
+        Could not figure out 
+    --> 
+</body>
+
+</html>

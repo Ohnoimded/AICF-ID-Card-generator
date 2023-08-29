@@ -1,0 +1,294 @@
+:root {
+    --primary-bg-color: #142d4c;
+    --secondary-bg-color: #385170;
+    --accent-color: #9fd3c7;
+    --text-color: #ececec;
+    --button-bg-color: #142d4c;
+    --button-bg-color-inactive: #ececec;
+    --button-border-color: #142d4c;
+    --button-text-color: #ececec;
+    --button-text-color-inactive: #142d4c;
+
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    height: 100%;
+    }
+body {
+    background: linear-gradient(to bottom, var(--secondary-bg-color) 10%, var(--primary-bg-color) 90%);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styles */
+.heading-area {
+    background-color: var(--primary-bg-color);
+    display: inline-flex;
+    position: fixed;
+    height: 10vh;
+    min-height: 100px;
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+
+
+.header h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right,
+            var(--accent-color) 0%,
+            var(--text-color) 33%,
+            var(--accent-color) 66%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% auto;
+    animation: textShine 10s ease-in-out infinite alternate;
+}
+
+.header a{
+    text-decoration: none;
+}
+
+@keyframes textShine {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 300%;
+    }
+}
+
+
+.main-area {
+    margin-top: 10vh;
+    align-self: center;
+    width: 70vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    gap: 5rem;
+    flex: 0 0 auto;
+}
+
+/* Iframe styles */
+.iframe {
+    width: 80%;
+    height: 50%;
+    border-radius: 0.5em;
+    margin-top: 10vh;
+    flex: 0 0 auto;
+}
+
+.iframe #aicfwebsite {
+    height: 100%;
+    width: 100%;
+    min-height: 300px;
+    max-width: 1400px;
+}
+
+.form {
+    background-color: var(--accent-color);
+    border: solid 1px var(--text-color);
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    width: 50%;
+    height: 40%;
+    max-width: 450px;
+    gap: 5%;
+    margin-bottom: 5%;
+}
+
+.form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.form label {
+    font-family: 'Lora', serif;
+    font-size: x-large;
+    text-align: center;
+}
+
+.form input {
+    text-align: center;
+    width: 70%;
+    height: 20%;
+    padding: 0.5rem;
+    border-radius: 0.3em;
+    border: none;
+    background-color: var(--text-color);
+    color: var(--primary-bg-color);
+    flex: 0 0 auto;
+
+}
+
+
+input[type=text],
+textarea {
+    -webkit-transition: all 0.20s ease-in-out;
+    transition: all 0.20s ease-in-out;
+    ;
+    -moz-transition: all 0.20s ease-in-out;
+    -ms-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid var(--primary-bg-color);
+}
+
+input[type=text]:focus,
+textarea:focus {
+    box-shadow: 0 0 10px var(--primary-bg-color);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid var(--primary-bg-color);
+}
+
+
+#download_button {
+    color: var(--primary-bg-color);
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 0.5em;
+    flex: 0 1 auto;
+    padding: 4px 7px;
+}
+
+#download_button:hover {
+    color: var(--button-text-color);
+    box-shadow: 0 5px 15px var(--button-bg-color);
+}
+
+/* #download_button {
+    opacity: 0.7;
+    cursor: not-allowed;
+} */
+
+
+/* Modal part copied from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal*/
+#alert-message-box {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+.footer-area {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+
+}
+
+.footer-area #buymecoffee {
+    text-decoration: none;
+    color: wheat;
+    font-size: smaller;
+
+}
+
+.footlink {
+    color: #4474ad;
+}
+
+ @media screen and (max-width: 600px) {
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .main-area{
+        margin-top: 5vh;
+        width: 85vw;
+    }
+
+    .main-area .container{
+        gap: 10vh;
+
+    }
+    .iframe{
+        min-width: 300px;
+    }
+    .form{
+        min-width: 250px;
+        max-width: 400px;
+    }
+
+    .footer-area{
+        font-size: small;
+    }
+
+
+
+}
+
+ @media screen and (max-height: 500px) {
+    .form {
+        min-height: 100px;
+    }
+} 
