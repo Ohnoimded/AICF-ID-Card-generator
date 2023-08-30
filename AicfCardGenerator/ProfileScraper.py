@@ -36,11 +36,11 @@ class ProfileScraper:
     def scrape_profile(self, id, with_api=True):
         if with_api:
             data = self.scrape_profile_from_api(id)
-            self.save_to_csv(data)
+            # self.save_to_csv(data)
             return data
         else:                                       # NOT RECOMMENDED
             data = self.scrape_profile_from_website(id)
-            self.save_to_csv(data)
+            # self.save_to_csv(data)
             return data
 
     # Default: Scrapes with the AICF API
