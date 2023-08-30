@@ -62,7 +62,10 @@ class CardGenerator:
         for i in dict(list(profile_data.items())[4:]):
             draw.text((150, text_y_start), i, fill="black", font=user_data_font)
             draw.text((800, text_y_start), " : ", fill="black", font=user_data_font)
-            draw.text((950, text_y_start), profile_data[i], fill="black", font=user_data_font)
+            if profile_data[i] == 'Expired':
+                draw.text((950, text_y_start), profile_data[i], fill="#4000ff", font=user_data_font)
+            else:
+                draw.text((950, text_y_start), profile_data[i], fill="black", font=user_data_font)
             text_y_start += 160
 
         # AICF ID will be placed at the bottom
