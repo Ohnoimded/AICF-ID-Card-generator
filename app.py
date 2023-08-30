@@ -4,7 +4,7 @@ from AicfCardGenerator.CardGenerator import CardGenerator
 
 app = Flask(__name__)
 
-# Disable caching
+
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.errorhandler(500)
