@@ -3,7 +3,6 @@ from AicfCardGenerator.ProfileScraper import ProfileScraper
 from AicfCardGenerator.CardGenerator import CardGenerator
 
 app = Flask(__name__)
-app.secret_key = "secret"
 
 # Disable caching
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -30,15 +29,11 @@ def open_image():
 
 @app.route('/download/<aicf_id>')
 def download(aicf_id):
-    try:
-        profile = ProfileScraper().scrape_profile(aicf_id)
-        card = CardGenerator().generate_card(profile)
-        response = Response(card, content_type='image/png')
-        response.headers['Content-Disposition'] = 'inline; filename=image.png'
-        return response
-    except Exception as e:
-        error_message = "Failed to generate ID card for the given AICF ID. Please check your AICF ID and try again."
-        return render_template('error.html', error_message=error_message)
+    profile = ProfileScraper().scrape_profile(aicf_id)
+    card = CardGenerator().generate_card(profile)
+    response = Response(card, content_type='image/png')
+    response.headers['Content-Disposition'] = 'inline; filename=image.png'
+    return response
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
