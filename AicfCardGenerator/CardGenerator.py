@@ -2,11 +2,8 @@ from PIL import Image, ImageDraw, ImageFont
 import qrcode
 import requests
 import io
-import sys
 import os
-
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-
+import sys
 
 class CardGenerator:
     def generate_qr(self, url):
@@ -24,14 +21,12 @@ class CardGenerator:
     def generate_card(self, profile_data):
         max_profile_width = 400  # Fixed width for the profile image
 
+        module_dir = os.path.dirname(__file__)
+        image_path = os.path.join(module_dir, 'images', 'template.png')
+        font_path = os.path.join(module_dir, 'fonts', 'OpenSans-SemiBold.ttf')
+
         # Import background template
-        app_dir = os.path.dirname(os.path.abspath(__file__))
-
-        # Construct paths relative to the Flask app file
-        template_path = os.path.join(app_dir, '..','static', 'images', 'template.png')
-        font_path = os.path.join(app_dir,'..', 'static', 'fonts', 'OpenSans-Semibold.ttf')
-
-        background = Image.open(template_path)
+        background = Image.open(image_path)
 
         # Import profile picture
         try:
