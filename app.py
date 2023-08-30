@@ -19,7 +19,7 @@ def index():
     message_attr = "none"
     return render_template('index.html', message_attr=message_attr)
 
-@app.route('/', methods=['POST'])
+@app.route('/download', methods=['POST'])
 def download_output_image():
     aicf_id = request.form['aicf_id']
     try:
