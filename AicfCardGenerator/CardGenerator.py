@@ -2,6 +2,11 @@ from PIL import Image, ImageDraw, ImageFont
 import qrcode
 import requests
 import io
+import sys
+import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
 
 class CardGenerator:
     def generate_qr(self, url):
