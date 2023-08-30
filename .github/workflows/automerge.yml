@@ -1,29 +1,47 @@
 name: Automerge
 
 on:
-  workflow_dispatch:
-  schedule:
-    # You can setup schedule here
-    - cron: '0 0 * * *'
-
-env:
-  MY_REPO: https://github.com/Ohnoimded/AICF-ID-Card-generator.git
-  MY_BRANCH: production
-  MASTER_BRANCH: main
+  push:
+    branches:
+      - main
 
 jobs:
-  merge:
+  trigger_automerge:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout main branch
       uses: actions/checkout@v2
       with:
-        ref: ${{env.MASTER_BRANCH}}
+        ref: main
+    - name: Wait for 1 minute
+      run: sleep 60
+    - name: Dispatch Automerge Event
+      uses: actions/github-script@v4
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const github = context.github;
+          const { owner, repo } = context.repo;
 
+          github.repos.createDispatchEvent({
+            owner: owner,
+            repo: repo,
+            event_type: 'automerge'
+          });
+
+  merge:
+    needs: trigger_automerge
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout main branch
+      uses: actions/checkout@v2
+      with:
+        ref: main
     - name: Merge with production
       run: |
-        git checkout ${{env.MY_BRANCH}}
+        git checkout production
         git config user.name "Automerge Bot"
-        git merge ${{env.MASTER_BRANCH}}
+        git merge main --no-edit
         git push
