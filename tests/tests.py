@@ -1,12 +1,17 @@
 import unittest
 from unittest.mock import Mock, patch
-from AicfCardGenerator.ProfileScraper import profile_scraper
+import sys
+import os
+from AicfCardGenerator.ProfileScraper import ProfileScraper
+
+
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
 
 class TestProfileScraper(unittest.TestCase):
-
-    @patch('AicfCardGenerator.ProfileScraper.requests.get')
-    def test_scrape_profile_from_api(self, mock_requests_get):
-        self.scraper = profile_scraper
+    @patch('requests.get')
+    def test_scrape_profile(self, mock_requests_get):
+        self.scraper = ProfileScraper()
 
         # Mock the response from the API for testing
         mock_response = {
@@ -57,7 +62,7 @@ class TestProfileScraper(unittest.TestCase):
         mock_requests_get.return_value.json.return_value = mock_response
 
         # Test scraping profile using the mock response
-        profile_data = self.scraper.scrape_profile_from_api("123456KL2023")
+        profile_data = self.scraper.scrape_profile("123456KL2023")
 
         # Expected profile data based on the mock response
         expected_data = {

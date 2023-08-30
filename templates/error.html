@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <section class="main-area">
+        <div class="container">
+            <div class="error">
+                <h2>Error</h2>
+                <p>{{ error_message }}</p>
+                <a href="{{ url_for('index') }}">Back to Home</a>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

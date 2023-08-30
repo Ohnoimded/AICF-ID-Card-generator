@@ -49,12 +49,11 @@ class ProfileScraper:
         try:
             response = requests.get(url=url)
 
-            if response.status_code ==422:
+            if response.status_code == 422:
                 raise AICFRegistrationError("Player not found! Please enter valid AICF ID")
             response.raise_for_status()
             data = response.json()
         
-
             # To check if the profile has validity or not
             if data['membership_status'] == False:
                 validity = 'Expired'
@@ -66,6 +65,8 @@ class ProfileScraper:
                 age=''
             else:
                 age=str(datetime.today().year - int(data['player']['date_of_birth']))
+                if age == str(0):
+                    age= ""
 
             # Handling names with middle name
             name = data['player']['first_name'] + \
@@ -179,7 +180,7 @@ profile_scraper = ProfileScraper()
 
 if __name__ == "__main__":
     # Profile ID to scrape
-    id = 'your_aicf_id'
+    id = '205997KL2023'
 
     # Scrape profile data using API
     data_api = profile_scraper.scrape_profile(id, with_api=True)

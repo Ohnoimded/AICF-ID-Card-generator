@@ -40,7 +40,7 @@
             </div>
 
             <div class="form">
-                <form action="{{ url_for('download_output_image') }}" method="post" autocomplete="off">
+                <form action="{{ url_for('open_image') }}" method="post" autocomplete="off" target="_blank">
                     <label class="label" for="aicf_value">Enter your AICF ID</label>
                     <input class="input" type="text" id="aicf_value" name="aicf_id" placeholder="AICF ID goes here!"
                         required minlength="12" maxlength="12" size="12" />
@@ -68,7 +68,7 @@
 
     <!-- <script src="../static/js/scripts.js" defer></script>  
         Could not figure out 
-    --> 
+    -->
 </body>
 
 </html>

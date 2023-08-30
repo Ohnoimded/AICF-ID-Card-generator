@@ -26,19 +26,18 @@ class CardGenerator:
         try:
             profile = requests.get(profile_data['Image']).content
             profile_image = Image.open(io.BytesIO(profile))
+            # Resize profile image while maintaining aspect ratio and fixed width
+            # width, height = profile_image.size
+            new_height = int(max_profile_width / 0.95)
+            profile_image = profile_image.resize((max_profile_width, new_height))
+            # Most images are not png. That's why I added this exception handling
+            try:
+                background.paste(profile_image, (2100, 650), mask=profile_image)
+            except:
+                background.paste(profile_image, (2100, 650))
         except:
             profile_image=""
 
-        # Resize profile image while maintaining aspect ratio and fixed width
-        # width, height = profile_image.size
-        new_height = int(max_profile_width / 0.95)
-        profile_image = profile_image.resize((max_profile_width, new_height))
-
-        # Most images are not png. That's why I added this exception handling
-        try:
-            background.paste(profile_image, (2100, 650), mask=profile_image)
-        except:
-            background.paste(profile_image, (2100, 650))
 
         # Make QR code
         qr_url = profile_data['url']
@@ -70,3 +69,4 @@ class CardGenerator:
         return output_buffer
 
 card_generator=CardGenerator()
+print(card_generator.generate_card({'url': 'https://prs.aicf.in/players/205997KL2023', 'Image': 'https://assets.aicf.in/contacts/large/6f73f8c3-c166-4861-97f1-cd822fe50b9a.png', 'AICF ID': '205997KL2023', 'FIDE ID': '', 'Name': 'Nived Krishna Prakash', 'Gender': 'M', 'Age': '23', 'State': 'Kerala', 'Registration Type': 'Player', 'Valid Upto': '2024-03-31'}))
