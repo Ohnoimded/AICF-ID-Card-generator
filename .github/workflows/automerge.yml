@@ -1,0 +1,29 @@
+name: Automerge
+
+on:
+  workflow_dispatch:
+  schedule:
+    # You can setup schedule here
+    - cron: '0 0 * * *'
+
+env:
+  MY_REPO: https://github.com/Ohnoimded/AICF-ID-Card-generator.git
+  MY_BRANCH: production
+  MASTER_BRANCH: main
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout main branch
+      uses: actions/checkout@v2
+      with:
+        ref: ${{env.MASTER_BRANCH}}
+
+    - name: Merge with production
+      run: |
+        git checkout ${{env.MY_BRANCH}}
+        git config user.name "Automerge Bot"
+        git merge ${{env.MASTER_BRANCH}}
+        git push
