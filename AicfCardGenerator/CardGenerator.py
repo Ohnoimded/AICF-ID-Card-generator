@@ -25,7 +25,13 @@ class CardGenerator:
         max_profile_width = 400  # Fixed width for the profile image
 
         # Import background template
-        background = Image.open('static/images/template.png')
+        app_dir = os.path.dirname(os.path.abspath(__file__))
+
+        # Construct paths relative to the Flask app file
+        template_path = os.path.join(app_dir, '..','static', 'images', 'template.png')
+        font_path = os.path.join(app_dir,'..', 'static', 'fonts', 'OpenSans-Semibold.ttf')
+
+        background = Image.open(template_path)
 
         # Import profile picture
         try:
@@ -53,7 +59,7 @@ class CardGenerator:
         background.paste(qr_image, (2100, 1450))
 
         # Fonts and textual data initialisation
-        user_data_font = ImageFont.truetype(font='static/fonts/OpenSans-Semibold.ttf', size=65)
+        user_data_font = ImageFont.truetype(font=font_path, size=65)
         draw = ImageDraw.Draw(background)
 
         # Add textual data
@@ -65,7 +71,7 @@ class CardGenerator:
             text_y_start += 160
 
         # AICF ID will be placed at the bottom
-        draw.text((50, text_y_start - 40), profile_data['AICF ID'], fill="Red", font=ImageFont.truetype(font='static/fonts/OpenSans-Semibold.ttf', size=275))
+        draw.text((50, text_y_start - 40), profile_data['AICF ID'], fill="Red", font=ImageFont.truetype(font=font_path, size=275))
         
         # Saving to buffer to avoid storage issues. Had issues here for the longest time. I'm dumb ¯\_( ͡° ͜ʖ ͡°)_/¯
         output_buffer=io.BytesIO() 
