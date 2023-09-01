@@ -180,7 +180,7 @@ profile_scraper = ProfileScraper()
 
 if __name__ == "__main__":
     # Profile ID to scrape
-    id = '205997KL2023'
+    id = 'your_aicf_id'
 
     # Scrape profile data using API
     data_api = profile_scraper.scrape_profile(id, with_api=True)
