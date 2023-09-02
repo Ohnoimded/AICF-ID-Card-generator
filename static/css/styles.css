@@ -77,7 +77,7 @@ body {
 .main-area {
     margin-top: 10vh;
     align-self: center;
-    width: 70vw;
+    width: 80vw;
 }
 
 .container {
@@ -93,7 +93,6 @@ body {
 /* Iframe styles */
 .iframe {
     width: 80%;
-    height: 50%;
     border-radius: 0.5em;
     margin-top: 10vh;
     flex: 0 0 auto;
@@ -222,7 +221,6 @@ textarea:focus {
 
     .main-area{
         margin-top: 5vh;
-        width: 85vw;
     }
 
     .main-area .container{
@@ -230,10 +228,10 @@ textarea:focus {
 
     }
     .iframe{
-        min-width: 300px;
+        min-width: 360px;
     }
     .form{
-        min-width: 250px;
+        min-width: 300px;
         max-width: 400px;
     }
 
