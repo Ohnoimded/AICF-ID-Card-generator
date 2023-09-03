@@ -20,6 +20,7 @@ html{
 body {
     background: linear-gradient(to bottom, var(--secondary-bg-color) 10%, var(--primary-bg-color) 90%);
     height: 100%;
+    width: 100%;
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -38,7 +39,6 @@ body {
     width: 100%;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10vh;
 }
 
 
@@ -75,16 +75,21 @@ body {
 
 
 .main-area {
-    margin-top: 10vh;
+    display: flex;
+    position: absolute;
+    flex-wrap: nowrap;
+    top: 10vh;
     align-self: center;
-    width: 80vw;
+    justify-content: center;
+    width: 80%;
+    z-index: -1;
 }
 
 .container {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
-    align-self: center;
     justify-content: center;
     gap: 5rem;
     flex: 0 0 auto;
@@ -93,7 +98,9 @@ body {
 /* Iframe styles */
 .iframe {
     width: 80%;
-    border-radius: 0.5em;
+    height: 40%;
+    border: none;
+    border-radius:  0.5em;
     margin-top: 10vh;
     flex: 0 0 auto;
 }
@@ -119,7 +126,6 @@ body {
     height: 40%;
     max-width: 450px;
     gap: 5%;
-    margin-bottom: 5%;
 }
 
 .form form {
@@ -214,23 +220,22 @@ textarea:focus {
 
  @media screen and (max-width: 600px) {
 
+
     .header h1 {
         font-size: 1.8em;
     }
 
-    .main-area{
-        margin-top: 5vh;
-    }
 
     .main-area .container{
-        gap: 10vh;
+        gap: 4.5vh;
+        min-width: 380px;
 
     }
     .iframe{
-        min-width: 360px;
+        height: 300px;
     }
     .form{
-        min-width: 300px;
+        min-width: 240px;
         max-width: 400px;
     }
 
