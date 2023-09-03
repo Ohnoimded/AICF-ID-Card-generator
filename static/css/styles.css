@@ -19,7 +19,6 @@ html{
     }
 body {
     background: linear-gradient(to bottom, var(--secondary-bg-color) 10%, var(--primary-bg-color) 90%);
-    height: 100%;
     width: 100%;
     margin: 0;
     background-repeat: no-repeat;
