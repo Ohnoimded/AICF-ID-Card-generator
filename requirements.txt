@@ -4,4 +4,5 @@ Pillow==9.5.0
 qrcode==7.4.2
 Requests==2.31.0
 selenium==4.11.2
+gunicorn==20.1.0
 # setuptools==56.0.0
