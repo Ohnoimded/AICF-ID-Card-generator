@@ -33,7 +33,7 @@
   
 <h2>Website:</h2>
 
-The website is available on <a href="https://aicf.onrender.com/">aicfidcard.cyclic.app</a>
+The website is available on <a href="https://aicf.onrender.com/">aicf.onrender.com</a>
 
   ![image](https://github.com/Ohnoimded/AICF-ID-Card-generator/assets/88839014/d2764d93-5c7f-4c07-b776-bd872d0d081b)
 
